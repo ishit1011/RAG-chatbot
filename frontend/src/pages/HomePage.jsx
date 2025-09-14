@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "../assets/styles/auth.scss";
 import { GoogleLogin } from '@react-oauth/google'
+
 // import jwt_decode from 'jwt-decode'
 
 
@@ -22,7 +23,7 @@ const decodeJwt = (token) => {
   }
 };
 
-const Auth = () => {
+const HomePage = () => {
   const navigate = useNavigate();
 
 
@@ -56,4 +57,4 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default HomePage;

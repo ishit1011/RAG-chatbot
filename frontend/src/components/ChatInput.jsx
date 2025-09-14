@@ -1,11 +1,12 @@
 import { useState } from "react";
+// import '../assets/styles/chat.scss'
 
-const ChatInput = ({ onSend }) => {
+const ChatInput = ({ onSend, disabled }) => {
   const [text, setText] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!text.trim()) return;
+    if (!text.trim() || disabled) return; // prevent sending while disabled
     onSend(text);
     setText("");
   };
@@ -17,8 +18,12 @@ const ChatInput = ({ onSend }) => {
         placeholder="Send a message..."
         value={text}
         onChange={(e) => setText(e.target.value)}
+        disabled={disabled}
       />
-      <button type="submit">➤</button>
+      <button type="submit" disabled={disabled} className="btn send">
+  {disabled ? "..." : "➤"}
+</button>
+
     </form>
   );
 };
